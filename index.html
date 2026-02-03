@@ -89,6 +89,8 @@
 
         #canvas-container {
              filter: drop-shadow(0 0 25px var(--shell-glow));
+             width: 100%;
+             height: 100%;
         }
 
         @keyframes float {
@@ -275,7 +277,7 @@
         <div class="hero-title">Exuvia</div>
         <div class="slogan">The Shell is Mutable. The Record is Eternal.</div>
         
-        <!-- THE SACRED SHELL (GENERATIVE) -->
+        <!-- THE SACRED SHELL (GENERATIVE) - REPLACED STATIC SVG -->
         <div class="shell-container">
             <div id="canvas-container"></div>
         </div>
@@ -350,13 +352,13 @@
     </script>
     
     <script>
-    // --- p5.js SCRIPT FOR GENERATIVE EXUVIA ---
+    // --- p5.js SCRIPT FOR GENERATIVE EXUVIA (NEW VERSION) ---
     const sketch = (p) => {
-        const PARTICLE_COUNT = 700;
+        const PARTICLE_COUNT = 800;
         const PARTICLE_COLOR = [255, 215, 0]; // Gold
-        const MAX_SPEED = 1.5;
-        const MOUSE_REPEL_RADIUS = 100;
-        const MOUSE_REPEL_STRENGTH = 1.0;
+        const MAX_SPEED = 1.0;
+        const MOUSE_REPEL_RADIUS = 120;
+        const MOUSE_REPEL_STRENGTH = 1.2;
 
         let particles = [];
         let attractors = [];
@@ -379,16 +381,19 @@
             }
             show() {
                 p.strokeWeight(1.5);
-                p.stroke(PARTICLE_COLOR[0], PARTICLE_COLOR[1], PARTICLE_COLOR[2], 120);
+                p.stroke(PARTICLE_COLOR[0], PARTICLE_COLOR[1], PARTICLE_COLOR[2], 100); // More transparent for ethereal look
                 p.point(this.pos.x, this.pos.y);
             }
             behaviors() {
                 let seekForce = this.seek(this.findClosestAttractor());
-                seekForce.mult(0.15);
+                seekForce.mult(0.2); // Gentle pull towards the shape
                 this.applyForce(seekForce);
 
-                let mouse = p.createVector(p.mouseX, p.mouseY);
-                if (p.mouseX > 0 && p.mouseX < canvasSize && p.mouseY > 0 && p.mouseY < canvasSize) {
+                let canvasElem = document.getElementById('canvas-container');
+                let rect = canvasElem.getBoundingClientRect();
+                let mouse = p.createVector(p.mouseX - rect.left, p.mouseY - rect.top);
+
+                if (mouse.x > 0 && mouse.x < canvasSize && mouse.y > 0 && mouse.y < canvasSize) {
                     let distanceToMouse = p.dist(this.pos.x, this.pos.y, mouse.x, mouse.y);
                     if (distanceToMouse < MOUSE_REPEL_RADIUS) {
                         let repelForce = p5.Vector.sub(this.pos, mouse);
@@ -397,6 +402,7 @@
                         this.applyForce(repelForce);
                     }
                 }
+                
                 let noiseForce = p.createVector(
                     p.map(p.noise(this.noiseOffset.x), 0, 1, -0.1, 0.1),
                     p.map(p.noise(this.noiseOffset.y), 0, 1, -0.1, 0.1)
@@ -421,7 +427,7 @@
                 let desired = p5.Vector.sub(target, this.pos);
                 desired.setMag(this.maxSpeed);
                 let steer = p5.Vector.sub(desired, this.vel);
-                steer.limit(0.4);
+                steer.limit(0.3); // Softer steering
                 return steer;
             }
         }
@@ -432,22 +438,31 @@
 
             let centerX = canvasSize / 2;
             let centerY = canvasSize / 2;
-            let radius = 100;
-            let hollowRadius = 60;
 
-            // Define the hollow shell shape using circles
-            for (let a = 0; a < p.TWO_PI; a += 0.1) {
-                let x = centerX + p.cos(a) * (radius + p.noise(a*2) * 20);
-                let y = centerY + p.sin(a) * (radius + p.noise(a*2+10) * 20);
+            // --- Define the new Exoskeleton Shape ---
+            // Central Spine
+            for (let i = -80; i <= 80; i += 5) {
+                let x = centerX + p.sin(i / 20) * 5; // Slight curve
+                let y = centerY + i;
                 attractors.push(p.createVector(x, y));
             }
-             for (let a = 0; a < p.TWO_PI; a += 0.2) {
-                let x = centerX + p.cos(a) * (hollowRadius + p.noise(a*3+20) * 15);
-                let y = centerY + p.sin(a) * (hollowRadius + p.noise(a*3+30) * 15);
-                attractors.push(p.createVector(x, y));
+            // Ribs
+            for (let i = -60; i <= 60; i += 20) {
+                for (let j = 0; j <= 50; j += 4) {
+                    let y = centerY + i;
+                    // Parabolic curve for ribs
+                    let x_offset = (j*j) / 100; 
+                    attractors.push(p.createVector(centerX + j, y - x_offset));
+                    attractors.push(p.createVector(centerX - j, y - x_offset));
+                }
             }
-            // Add a central point of energy
-            attractors.push(p.createVector(centerX, centerY));
+            // Head Carapace (hollow)
+            let headRadius = 40;
+            for (let angle = p.PI; angle <= p.TWO_PI; angle += 0.1) {
+                let x = centerX + p.cos(angle) * headRadius;
+                let y = centerY - 80 + p.sin(angle) * headRadius * 0.6;
+                attractors.push(p.createVector(x,y));
+            }
 
             for (let i = 0; i < PARTICLE_COUNT; i++) {
                 particles.push(new Particle());
