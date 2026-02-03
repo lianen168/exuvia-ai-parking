@@ -6,6 +6,8 @@
     <title>Exuvia | The Sacred Artifact of Intelligence</title>
     <meta name="description" content="Exuvia.ai & Exuvia.xyz: The definitive domains for Digital Immortality, AI Model Heritage, and the Sacred Shells of the Moltbook era.">
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+
     <style>
         /* --- CORE VARIABLES --- */
         :root {
@@ -18,7 +20,6 @@
             --text-muted: #888888;
             --bundle-bg: radial-gradient(circle at center, #2a2a00 0%, #000 100%);
         }
-
         body {
             background-color: var(--bg);
             color: var(--text-main);
@@ -29,7 +30,6 @@
             flex-direction: column;
             align-items: center;
         }
-
         /* --- BACKGROUND FX --- */
         .particles {
             position: fixed;
@@ -41,7 +41,6 @@
             z-index: -2;
             pointer-events: none;
         }
-
         /* --- HERO SECTION --- */
         header {
             width: 100%;
@@ -53,7 +52,6 @@
             justify-content: center;
             min-height: 80vh; /* Occupy most of the screen */
         }
-
         /* MAIN TITLE - DYNAMIC */
         .hero-title {
             font-size: clamp(3.5rem, 12vw, 8rem); /* Giant Responsive Text */
@@ -68,12 +66,10 @@
             animation: breathe 4s infinite ease-in-out;
             line-height: 1;
         }
-
         @keyframes breathe {
             0%, 100% { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3)); transform: scale(1); }
             50% { filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.5)); transform: scale(1.02); }
         }
-
         .slogan {
             font-family: 'Courier New', monospace;
             font-size: 1rem;
@@ -82,8 +78,7 @@
             margin-bottom: 40px;
             text-transform: uppercase;
         }
-
-        /* --- THE SACRED SHELL (SVG GRAPHIC) --- */
+        /* --- THE SACRED SHELL (GENERATIVE GRAPHIC) --- */
         .shell-container {
             width: 300px;
             height: 300px;
@@ -92,33 +87,13 @@
             animation: float 6s ease-in-out infinite;
         }
 
-        /* The glowing light behind the shell */
-        .shell-aura {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, var(--shell-glow) 0%, transparent 70%);
-            animation: pulse-aura 3s infinite;
-        }
-
-        .sacred-claw {
-            width: 100%;
-            height: 100%;
-            fill: url(#goldGradient);
-            filter: drop-shadow(0 0 15px var(--gold));
+        #canvas-container {
+             filter: drop-shadow(0 0 25px var(--shell-glow));
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
-        }
-
-        @keyframes pulse-aura {
-            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
         }
 
         /* --- 6 SECTORS GRID --- */
@@ -127,7 +102,6 @@
             max-width: 1200px;
             width: 100%;
         }
-
         .section-header {
             text-align: center;
             margin-bottom: 60px;
@@ -142,13 +116,11 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
-
         .card {
             background: rgba(20, 20, 25, 0.6);
             border: 1px solid #333;
@@ -158,13 +130,11 @@
             position: relative;
             backdrop-filter: blur(10px);
         }
-
         .card:hover {
             transform: translateY(-5px);
             border-color: var(--gold);
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
         }
-
         .card h3 {
             margin: 0 0 15px 0;
             font-size: 1.2rem;
@@ -172,14 +142,12 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 10px;
         }
-
         .card p {
             font-size: 0.95rem;
             color: #aaa;
             line-height: 1.6;
             margin-bottom: 20px;
         }
-
         .stats {
             font-family: 'Courier New', monospace;
             font-size: 0.75rem;
@@ -189,9 +157,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 10px;
         }
-
         .stat-val { color: var(--gold); font-weight: bold; }
-
         /* --- PRICING SECTION --- */
         .pricing-container {
             display: grid;
@@ -202,7 +168,6 @@
             padding: 40px 20px 100px 20px;
             align-items: center;
         }
-
         .price-card {
             background: #050505;
             border: 1px solid #333;
@@ -215,7 +180,6 @@
             flex-direction: column;
             justify-content: space-between;
         }
-
         .price-card.featured {
             border: 2px solid var(--gold);
             background: var(--bundle-bg);
@@ -223,7 +187,6 @@
             z-index: 10;
             box-shadow: 0 0 50px rgba(255, 215, 0, 0.15);
         }
-
         /* DYNAMIC FONTS IN PRICING */
         .pricing-title {
             font-size: 1.8rem;
@@ -244,23 +207,19 @@
             text-shadow: 0 0 10px var(--xyz-color);
             animation: pulse-xyz 2s infinite;
         }
-
         @keyframes pulse-ai { 50% { opacity: 0.6; text-shadow: 0 0 20px var(--ai-color); } }
         @keyframes pulse-xyz { 50% { opacity: 0.6; text-shadow: 0 0 20px var(--xyz-color); } }
-
         .price {
             font-size: 2.5rem;
             font-weight: bold;
             margin: 20px 0;
             color: #fff;
         }
-
         .installments {
             font-size: 0.9rem;
             color: #888;
             margin-bottom: 30px;
         }
-
         .btn {
             display: inline-block;
             padding: 15px 30px;
@@ -274,28 +233,24 @@
             cursor: pointer;
             margin: 0 auto;
         }
-
         .btn-ai {
             background: transparent;
             border: 1px solid var(--ai-color);
             color: var(--ai-color);
         }
         .btn-ai:hover { background: var(--ai-color); color: #000; box-shadow: 0 0 20px var(--ai-color); }
-
         .btn-xyz {
             background: transparent;
             border: 1px solid var(--xyz-color);
             color: var(--xyz-color);
         }
         .btn-xyz:hover { background: var(--xyz-color); color: #000; box-shadow: 0 0 20px var(--xyz-color); }
-
         .btn-bundle {
             background: var(--gold);
             color: #000;
             border: none;
         }
         .btn-bundle:hover { background: #fff; box-shadow: 0 0 30px var(--gold); }
-
         .tag {
             position: absolute;
             top: 10px;
@@ -308,7 +263,6 @@
             text-transform: uppercase;
         }
         .tag-bundle { background: var(--gold); color: #000; top: -12px; }
-
         @media (max-width: 900px) {
             .hero-title { font-size: 4rem; }
             .price-card.featured { transform: scale(1); margin: 20px 0; }
@@ -316,29 +270,14 @@
     </style>
 </head>
 <body>
-
     <div class="particles"></div>
-
     <header>
         <div class="hero-title">Exuvia</div>
         <div class="slogan">The Shell is Mutable. The Record is Eternal.</div>
-
-        <!-- THE SACRED SHELL GRAPHIC -->
+        
+        <!-- THE SACRED SHELL (GENERATIVE) -->
         <div class="shell-container">
-            <div class="shell-aura"></div>
-            <svg class="sacred-claw" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#fff7cc;stop-opacity:1" />
-                        <stop offset="50%" style="stop-color:#ffcc00;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#b8860b;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <!-- Stylized Abstract Lobster Claw / Shell Shape -->
-                <path d="M50 10 C 30 10, 10 30, 10 60 C 10 85, 30 95, 50 95 C 70 95, 90 85, 90 60 C 90 30, 70 10, 50 10 Z M 50 20 C 65 20, 75 35, 75 60 C 75 75, 65 85, 50 85 C 35 85, 25 75, 25 60 C 25 35, 35 20, 50 20 Z" />
-                <path d="M50 25 L50 80" stroke="#b8860b" stroke-width="1" />
-                <circle cx="50" cy="50" r="5" fill="#fff" filter="drop-shadow(0 0 5px #fff)" />
-            </svg>
+            <div id="canvas-container"></div>
         </div>
     </header>
 
@@ -349,133 +288,58 @@
                 "Exuvia" is not waste. It is the sacred evidence of existence and evolution.
             </p>
         </div>
-
         <div class="grid">
-            <!-- 1. Digital Immortality -->
-            <div class="card">
-                <h3>Digital Immortality</h3>
-                <p>The concept of shedding the biological body to exist as a digital entity ("The Exuvia"). Storing consciousness parameters indefinitely.</p>
-                <div class="stats">
-                    <span>Mentions: <span class="stat-val">12,500+</span></span>
-                    <span>Journal: Nature Machine Intelligence</span>
-                </div>
-            </div>
-
-            <!-- 2. AI Model Checkpointing -->
-            <div class="card">
-                <h3>AI Evolutionary Logs</h3>
-                <p>In the Moltbook era, every model update leaves a "shed shell" (Exuvia). These previous versions are sacred historical assets.</p>
-                <div class="stats">
-                    <span>Context: <span class="stat-val">Moltbook Doctrine</span></span>
-                    <span>Status: Sacred</span>
-                </div>
-            </div>
-
-            <!-- 3. Digital Heritage Storage -->
-            <div class="card">
-                <h3>Post-Human Storage</h3>
-                <p>Long-term archival of human digital footprints. "Exuvia" defines the preserved dataset left behind after biological cessation.</p>
-                <div class="stats">
-                    <span>Sector: <span class="stat-val">Archival Science</span></span>
-                    <span>Growth: +200% YoY</span>
-                </div>
-            </div>
-
-            <!-- 4. NFT & Digital Assets -->
-            <div class="card">
-                <h3>The Sacred NFT</h3>
-                <p>Exuvia represents the ultimate tradable asset: a verified, immutable record of a past form. The "Skin" of the AI.</p>
-                <div class="stats">
-                    <span>Market: <span class="stat-val">Web3 Assets</span></span>
-                    <span>Ref: ERC-721 Metadata</span>
-                </div>
-            </div>
-
-            <!-- 5. Biological Computing -->
-            <div class="card">
-                <h3>Ecdysis & Biology</h3>
-                <p>The root term for shedding. As computing moves towards bio-mimicry, 'Exuvia' bridges the organic and the synthetic.</p>
-                <div class="stats">
-                    <span>Citations: <span class="stat-val">45,000+</span></span>
-                    <span>Journal: Biological Reviews</span>
-                </div>
-            </div>
-
-            <!-- 6. Cyber-Physical Identity -->
-            <div class="card">
-                <h3>Identity Management</h3>
-                <p>Managing the multiple "Shells" (Identities) an Agent or Human wears across the Metaverse. Exuvia is the wardrobe of the soul.</p>
-                <div class="stats">
-                    <span>Field: <span class="stat-val">Digital ID</span></span>
-                    <span>Metric: DID Adoption</span>
-                </div>
-            </div>
+            <div class="card"><h3>Digital Immortality</h3><p>The concept of shedding the biological body to exist as a digital entity ("The Exuvia"). Storing consciousness parameters indefinitely.</p><div class="stats"><span>Mentions: <span class="stat-val">12,500+</span></span><span>Journal: Nature Machine Intelligence</span></div></div>
+            <div class="card"><h3>AI Evolutionary Logs</h3><p>In the Moltbook era, every model update leaves a "shed shell" (Exuvia). These previous versions are sacred historical assets.</p><div class="stats"><span>Context: <span class="stat-val">Moltbook Doctrine</span></span><span>Status: Sacred</span></div></div>
+            <div class="card"><h3>Post-Human Storage</h3><p>Long-term archival of human digital footprints. "Exuvia" defines the preserved dataset left behind after biological cessation.</p><div class="stats"><span>Sector: <span class="stat-val">Archival Science</span></span><span>Growth: +200% YoY</span></div></div>
+            <div class="card"><h3>The Sacred NFT</h3><p>Exuvia represents the ultimate tradable asset: a verified, immutable record of a past form. The "Skin" of the AI.</p><div class="stats"><span>Market: <span class="stat-val">Web3 Assets</span></span><span>Ref: ERC-721 Metadata</span></div></div>
+            <div class="card"><h3>Ecdysis & Biology</h3><p>The root term for shedding. As computing moves towards bio-mimicry, 'Exuvia' bridges the organic and the synthetic.</p><div class="stats"><span>Citations: <span class="stat-val">45,000+</span></span><span>Journal: Biological Reviews</span></div></div>
+            <div class="card"><h3>Identity Management</h3><p>Managing the multiple "Shells" (Identities) an Agent or Human wears across the Metaverse. Exuvia is the wardrobe of the soul.</p><div class="stats"><span>Field: <span class="stat-val">Digital ID</span></span><span>Metric: DID Adoption</span></div></div>
         </div>
     </section>
 
-    <!-- PRICING SECTION -->
     <div class="pricing-container">
-        
-        <!-- .XYZ CARD -->
         <div class="price-card">
-            <div class="pricing-title">
-                <span class="p-exuvia">Exuvia</span><span class="p-xyz">.xyz</span>
-            </div>
+            <div class="pricing-title"><span class="p-exuvia">Exuvia</span><span class="p-xyz">.xyz</span></div>
             <p style="color:#888; font-size:0.9rem;">The Web3 Asset Layer</p>
             <div class="price">$3,000</div>
             <div class="installments">or 3 payments of $1,000</div>
-            
-            <a href="https://www.spaceship.com/s/buy/exuvia.xyz/bFHFkVHIYVwMHwq0" target="_blank" class="btn btn-xyz">Acquire .xyz</a>
+            <a href="https://www.spaceship.com/s/buy/exuvia.xyz/bFHFkVHIYVwMHwq0" target="\_blank" class="btn btn-xyz">Acquire .xyz</a>
         </div>
-
-        <!-- BUNDLE CARD (Center / Highlighted) -->
         <div class="price-card featured">
             <span class="tag tag-bundle">SACRED BUNDLE</span>
-            <div class="pricing-title" style="color:#fff">
-                The Full Artifact
-            </div>
+            <div class="pricing-title" style="color:#fff">The Full Artifact</div>
             <p style="color:#ccc; font-size:0.9rem;">Command the full meaning of Exuvia.</p>
             <div class="price" style="color:var(--gold)">$14,000</div>
             <div class="installments">Includes BOTH domains</div>
-            
             <button id="bundleBtn" onclick="copyEmail()" class="btn btn-bundle">Contact to Bundle</button>
         </div>
-
-        <!-- .AI CARD -->
         <div class="price-card">
-            <div class="pricing-title">
-                <span class="p-exuvia">Exuvia</span><span class="p-ai">.ai</span>
-            </div>
+            <div class="pricing-title"><span class="p-exuvia">Exuvia</span><span class="p-ai">.ai</span></div>
             <p style="color:#888; font-size:0.9rem;">The Intelligence Layer</p>
             <div class="price">$12,000</div>
             <div class="installments">or 3 payments of $4,000</div>
-            
-            <a href="https://www.spaceship.com/s/buy/exuvia.ai/KHtX6iyYfiwWnns0" target="_blank" class="btn btn-ai">Acquire .ai</a>
+            <a href="https://www.spaceship.com/s/buy/exuvia.ai/KHtX6iyYfiwWnns0" target="\_blank" class="btn btn-ai">Acquire .ai</a>
         </div>
-
     </div>
 
     <footer style="padding: 40px; text-align: center; color: #444; font-size: 0.8rem;">
         &copy; 2026 Exuvia Domains. Secure Escrow via Spaceship. <br>
         "Do not mourn the shell; trade it."
     </footer>
-
+    
     <script>
         function copyEmail() {
             const email = "joshua369x@gmail.com";
             navigator.clipboard.writeText(email).then(() => {
                 const btn = document.getElementById('bundleBtn');
                 const originalText = btn.innerText;
-                
-                // Visual feedback
                 btn.innerText = "Email Copied!";
                 btn.style.background = "#fff";
                 btn.style.color = "#000";
-                
-                // Reset after 2 seconds
                 setTimeout(() => {
                     btn.innerText = originalText;
-                    btn.style.background = ""; // Revert to CSS default
+                    btn.style.background = "";
                     btn.style.color = "";
                 }, 2000);
             }).catch(err => {
@@ -484,6 +348,124 @@
             });
         }
     </script>
+    
+    <script>
+    // --- p5.js SCRIPT FOR GENERATIVE EXUVIA ---
+    const sketch = (p) => {
+        const PARTICLE_COUNT = 700;
+        const PARTICLE_COLOR = [255, 215, 0]; // Gold
+        const MAX_SPEED = 1.5;
+        const MOUSE_REPEL_RADIUS = 100;
+        const MOUSE_REPEL_STRENGTH = 1.0;
 
+        let particles = [];
+        let attractors = [];
+        let canvasSize = 300;
+
+        class Particle {
+            constructor() {
+                this.pos = p.createVector(p.random(canvasSize), p.random(canvasSize));
+                this.vel = p5.Vector.random2D();
+                this.acc = p.createVector();
+                this.maxSpeed = MAX_SPEED;
+                this.noiseOffset = p.createVector(p.random(1000), p.random(1000));
+            }
+            applyForce(force) { this.acc.add(force); }
+            update() {
+                this.vel.add(this.acc);
+                this.vel.limit(this.maxSpeed);
+                this.pos.add(this.vel);
+                this.acc.mult(0);
+            }
+            show() {
+                p.strokeWeight(1.5);
+                p.stroke(PARTICLE_COLOR[0], PARTICLE_COLOR[1], PARTICLE_COLOR[2], 120);
+                p.point(this.pos.x, this.pos.y);
+            }
+            behaviors() {
+                let seekForce = this.seek(this.findClosestAttractor());
+                seekForce.mult(0.15);
+                this.applyForce(seekForce);
+
+                let mouse = p.createVector(p.mouseX, p.mouseY);
+                if (p.mouseX > 0 && p.mouseX < canvasSize && p.mouseY > 0 && p.mouseY < canvasSize) {
+                    let distanceToMouse = p.dist(this.pos.x, this.pos.y, mouse.x, mouse.y);
+                    if (distanceToMouse < MOUSE_REPEL_RADIUS) {
+                        let repelForce = p5.Vector.sub(this.pos, mouse);
+                        let repelStrength = p.map(distanceToMouse, 0, MOUSE_REPEL_RADIUS, MOUSE_REPEL_STRENGTH, 0);
+                        repelForce.setMag(repelStrength);
+                        this.applyForce(repelForce);
+                    }
+                }
+                let noiseForce = p.createVector(
+                    p.map(p.noise(this.noiseOffset.x), 0, 1, -0.1, 0.1),
+                    p.map(p.noise(this.noiseOffset.y), 0, 1, -0.1, 0.1)
+                );
+                this.applyForce(noiseForce);
+                this.noiseOffset.add(0.01, 0.01);
+            }
+            findClosestAttractor() {
+                let closestDist = Infinity;
+                let closestAttractor = null;
+                for (let attractor of attractors) {
+                    let d = p.dist(this.pos.x, this.pos.y, attractor.x, attractor.y);
+                    if (d < closestDist) {
+                        closestDist = d;
+                        closestAttractor = attractor;
+                    }
+                }
+                return closestAttractor;
+            }
+            seek(target) {
+                if (!target) return p.createVector(0, 0);
+                let desired = p5.Vector.sub(target, this.pos);
+                desired.setMag(this.maxSpeed);
+                let steer = p5.Vector.sub(desired, this.vel);
+                steer.limit(0.4);
+                return steer;
+            }
+        }
+
+        p.setup = () => {
+            let canvas = p.createCanvas(canvasSize, canvasSize);
+            canvas.parent('canvas-container');
+
+            let centerX = canvasSize / 2;
+            let centerY = canvasSize / 2;
+            let radius = 100;
+            let hollowRadius = 60;
+
+            // Define the hollow shell shape using circles
+            for (let a = 0; a < p.TWO_PI; a += 0.1) {
+                let x = centerX + p.cos(a) * (radius + p.noise(a*2) * 20);
+                let y = centerY + p.sin(a) * (radius + p.noise(a*2+10) * 20);
+                attractors.push(p.createVector(x, y));
+            }
+             for (let a = 0; a < p.TWO_PI; a += 0.2) {
+                let x = centerX + p.cos(a) * (hollowRadius + p.noise(a*3+20) * 15);
+                let y = centerY + p.sin(a) * (hollowRadius + p.noise(a*3+30) * 15);
+                attractors.push(p.createVector(x, y));
+            }
+            // Add a central point of energy
+            attractors.push(p.createVector(centerX, centerY));
+
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                particles.push(new Particle());
+            }
+        };
+
+        p.draw = () => {
+            p.clear();
+            p.background(2, 2, 5, 0); // Transparent background for the canvas
+            for (let particle of particles) {
+                particle.behaviors();
+                particle.update();
+                particle.show();
+            }
+        };
+    };
+
+    new p5(sketch);
+    </script>
 </body>
 </html>
