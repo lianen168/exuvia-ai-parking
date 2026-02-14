@@ -6,15 +6,15 @@
     
     <!-- --- SEO OPTIMIZATION: META TAGS --- -->
     <title>Exuvia | Premium AI & Web3 Domains for Sale (Exuvia.ai & Exuvia.xyz)</title>
-    <meta name="description" content="Acquire Exuvia.ai & Exuvia.xyz. The definitive premium domains for Digital Immortality, AI Model Heritage, and AGI Branding. Secure Escrow transfer available.">
-    <meta name="keywords" content="Exuvia, AI Domain for Sale, Premium Domain, Digital Immortality, Web3 Asset, Exuvia.ai, Exuvia.xyz, Branding, AGI">
+    <meta name="description" content="Acquire Exuvia.ai & Exuvia.xyz. The definitive premium domains for Digital Immortality, AI Model Heritage, and AGI Branding. Secure Escrow transfer available. Accept Counter Offers.">
+    <meta name="keywords" content="Exuvia, AI Domain for Sale, Premium Domain, Digital Immortality, Web3 Asset, Exuvia.ai, Exuvia.xyz, Branding, AGI, Domain Auction, Make an Offer">
     <meta name="author" content="Exuvia Domains">
     
     <!-- --- SOCIAL MEDIA / OPEN GRAPH (OG) --- -->
     <meta property="og:type" content="product">
     <meta property="og:title" content="Exuvia | The Sacred Artifact of Intelligence - Domains for Sale">
-    <meta property="og:description" content="Invest in the ultimate branding for Digital Immortality. Exuvia.ai and Exuvia.xyz are now available for acquisition.">
-    <meta property="og:url" content="https://exuvia.ai"> <!-- Replace with your actual hosting URL if different -->
+    <meta property="og:description" content="Invest in the ultimate branding for Digital Immortality. Exuvia.ai and Exuvia.xyz are now available for acquisition. Make an offer today.">
+    <meta property="og:url" content="https://exuvia.ai"> 
     <meta property="og:site_name" content="Exuvia Domains">
     <meta property="og:price:amount" content="14000">
     <meta property="og:price:currency" content="USD">
@@ -22,9 +22,9 @@
     <!-- --- TWITTER CARD --- -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Exuvia.ai & Exuvia.xyz | Premium Domains">
-    <meta name="twitter:description" content="The Shell is Mutable. The Record is Eternal. Acquire the Exuvia brand today.">
+    <meta name="twitter:description" content="The Shell is Mutable. The Record is Eternal. Acquire the Exuvia brand today. Open for offers.">
 
-    <!-- --- STRUCTURED DATA (JSON-LD) FOR GOOGLE SHOPPING/SEARCH --- -->
+    <!-- --- STRUCTURED DATA (JSON-LD) --- -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org/",
@@ -71,6 +71,7 @@
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+
     <style>
         /* --- CORE VARIABLES --- */
         :root {
@@ -83,6 +84,8 @@
             --text-muted: #888888;
             --bundle-bg: radial-gradient(circle at center, #2a2a00 0%, #000 100%);
             --success-green: #00ff9d;
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --input-border: #333;
         }
 
         body {
@@ -117,12 +120,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 80vh; /* Occupy most of the screen */
+            min-height: 80vh; 
         }
 
         /* MAIN TITLE - DYNAMIC */
         .hero-title {
-            font-size: clamp(3.5rem, 12vw, 8rem); /* Giant Responsive Text */
+            font-size: clamp(3.5rem, 12vw, 8rem); 
             font-weight: 800;
             letter-spacing: -2px;
             margin-bottom: 20px;
@@ -149,7 +152,7 @@
             text-transform: uppercase;
         }
 
-        /* --- THE SACRED SHELL (GENERATIVE GRAPHIC) --- */
+        /* --- THE SACRED SHELL --- */
         .shell-container {
             width: 300px;
             height: 300px;
@@ -264,7 +267,7 @@
             gap: 30px;
             max-width: 1200px;
             width: 100%;
-            align-items: stretch;
+            align-items: flex-start; /* Changed from stretch to allow height variance with forms */
         }
 
         .price-card {
@@ -274,16 +277,13 @@
             text-align: center;
             border-radius: 12px;
             position: relative;
-            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             transition: transform 0.3s ease;
         }
 
-        .price-card:hover {
-            border-color: #555;
-        }
+        .price-card:hover { border-color: #555; }
 
         .price-card.featured {
             border: 2px solid var(--gold);
@@ -293,45 +293,17 @@
             box-shadow: 0 0 50px rgba(255, 215, 0, 0.15);
         }
 
-        /* DYNAMIC FONTS IN PRICING */
-        .pricing-title {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
+        .pricing-title { font-size: 1.8rem; font-weight: bold; margin-bottom: 10px; }
         .p-exuvia { color: #fff; }
+        .p-ai { color: var(--ai-color); text-shadow: 0 0 10px var(--ai-color); animation: pulse-ai 2s infinite; }
+        .p-xyz { color: var(--xyz-color); text-shadow: 0 0 10px var(--xyz-color); animation: pulse-xyz 2s infinite; }
         
-        .p-ai { 
-            color: var(--ai-color); 
-            text-shadow: 0 0 10px var(--ai-color);
-            animation: pulse-ai 2s infinite;
-        }
-        
-        .p-xyz { 
-            color: var(--xyz-color); 
-            text-shadow: 0 0 10px var(--xyz-color);
-            animation: pulse-xyz 2s infinite;
-        }
-
         @keyframes pulse-ai { 50% { opacity: 0.6; text-shadow: 0 0 20px var(--ai-color); } }
         @keyframes pulse-xyz { 50% { opacity: 0.6; text-shadow: 0 0 20px var(--xyz-color); } }
 
-        .price {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin: 20px 0 5px 0;
-            color: #fff;
-        }
+        .price { font-size: 2.5rem; font-weight: bold; margin: 20px 0 5px 0; color: #fff; }
+        .installments { font-size: 0.85rem; color: #888; margin-bottom: 20px; font-style: italic; }
 
-        .installments {
-            font-size: 0.85rem;
-            color: #888;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-
-        /* Feature Lists in Pricing */
         .feature-list {
             list-style: none;
             padding: 0;
@@ -348,14 +320,7 @@
             padding-left: 20px;
             position: relative;
         }
-
-        .feature-list li::before {
-            content: "›";
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-            font-weight: bold;
-        }
+        .feature-list li::before { content: "›"; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
 
         .btn {
             display: inline-block;
@@ -369,30 +334,16 @@
             width: 80%;
             cursor: pointer;
             margin: 0 auto;
-        }
-
-        .btn-ai {
-            background: transparent;
-            border: 1px solid var(--ai-color);
-            color: var(--ai-color);
-        }
-
-        .btn-ai:hover { background: var(--ai-color); color: #000; box-shadow: 0 0 20px var(--ai-color); }
-
-        .btn-xyz {
-            background: transparent;
-            border: 1px solid var(--xyz-color);
-            color: var(--xyz-color);
-        }
-
-        .btn-xyz:hover { background: var(--xyz-color); color: #000; box-shadow: 0 0 20px var(--xyz-color); }
-
-        .btn-bundle {
-            background: var(--gold);
-            color: #000;
             border: none;
         }
 
+        .btn-ai { background: transparent; border: 1px solid var(--ai-color); color: var(--ai-color); }
+        .btn-ai:hover { background: var(--ai-color); color: #000; box-shadow: 0 0 20px var(--ai-color); }
+
+        .btn-xyz { background: transparent; border: 1px solid var(--xyz-color); color: var(--xyz-color); }
+        .btn-xyz:hover { background: var(--xyz-color); color: #000; box-shadow: 0 0 20px var(--xyz-color); }
+
+        .btn-bundle { background: var(--gold); color: #000; }
         .btn-bundle:hover { background: #fff; box-shadow: 0 0 30px var(--gold); }
 
         .tag {
@@ -406,8 +357,79 @@
             border-radius: 20px;
             text-transform: uppercase;
         }
-
         .tag-bundle { background: var(--gold); color: #000; top: -12px; }
+
+        /* --- QUOTE / OFFER FORM STYLES --- */
+        .offer-separator {
+            margin: 25px 0 15px 0;
+            font-size: 0.7rem;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+        }
+        .offer-separator::before, .offer-separator::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #333;
+        }
+        .offer-separator span { padding: 0 10px; }
+
+        .offer-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .offer-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .offer-input {
+            width: 100%;
+            padding: 10px;
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            color: #fff;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        .offer-input:focus {
+            outline: none;
+            border-color: #666;
+            background: rgba(255,255,255,0.1);
+        }
+        .offer-input::placeholder { color: #555; }
+
+        .btn-offer-submit {
+            background: transparent;
+            border: 1px dashed #555;
+            color: #888;
+            font-size: 0.75rem;
+            padding: 8px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+        .btn-offer-submit:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(255, 215, 0, 0.05);
+        }
+        
+        .form-status {
+            font-size: 0.75rem;
+            margin-top: 5px;
+            height: 15px; /* prevent layout jump */
+        }
 
         @media (max-width: 900px) {
             .hero-title { font-size: 4rem; }
@@ -446,26 +468,40 @@
         </div>
     </section>
 
-    <!-- ENHANCED PRICING SYSTEM -->
+    <!-- ENHANCED PRICING SYSTEM WITH QUOTES -->
     <section class="pricing-section">
         <div class="pricing-header-text">:: ACQUISITION TERMINAL ::</div>
         <div class="pricing-container">
             
             <!-- EXUVIA.XYZ -->
             <div class="price-card">
-                <div class="pricing-title"><span class="p-exuvia">Exuvia</span><span class="p-xyz">.xyz</span></div>
-                <p style="color:#888; font-size:0.9rem;">The Web3 Asset Layer</p>
-                <div class="price">$3,000</div>
-                <div class="installments">Flexible Installments Available</div>
-                
-                <ul class="feature-list">
-                    <li>Perfect for Web3 / DAO Projects</li>
-                    <li>Includes ERC-721 Branding Concepts</li>
-                    <li>Secure Escrow via Spaceship</li>
-                    <li>Immediate Push Transfer</li>
-                </ul>
-
-                <a href="https://www.spaceship.com/s/buy/exuvia.xyz/bFHFkVHIYVwMHwq0" target="_blank" class="btn btn-xyz">Acquire .xyz</a>
+                <div class="card-content">
+                    <div class="pricing-title"><span class="p-exuvia">Exuvia</span><span class="p-xyz">.xyz</span></div>
+                    <p style="color:#888; font-size:0.9rem;">The Web3 Asset Layer</p>
+                    <div class="price">$3,000</div>
+                    <div class="installments">Flexible Installments Available</div>
+                    
+                    <ul class="feature-list">
+                        <li>Perfect for Web3 / DAO Projects</li>
+                        <li>Includes ERC-721 Branding</li>
+                        <li>Secure Escrow via Spaceship</li>
+                        <li>Immediate Push Transfer</li>
+                    </ul>
+                    <a href="https://www.spaceship.com/s/buy/exuvia.xyz/bFHFkVHIYVwMHwq0" target="_blank" class="btn btn-xyz">Acquire .xyz</a>
+                    
+                    <!-- QUOTE FORM .XYZ -->
+                    <div class="offer-separator"><span>OR Make Offer</span></div>
+                    <form onsubmit="submitOffer(event, this)" action="https://formsubmit.co/joshua369x@gmail.com" method="POST" class="offer-form">
+                        <input type="hidden" name="_subject" value="New Offer for Exuvia.xyz">
+                        <input type="hidden" name="_captcha" value="false">
+                        <div class="offer-row">
+                            <input type="email" name="email" class="offer-input" placeholder="Your Email" required>
+                            <input type="number" name="amount" class="offer-input" placeholder="Offer $$" required>
+                        </div>
+                        <button type="submit" class="btn-offer-submit">Send Counter Offer</button>
+                        <div class="form-status"></div>
+                    </form>
+                </div>
             </div>
 
             <!-- BUNDLE -->
@@ -482,8 +518,20 @@
                     <li>Priority Escrow Handling</li>
                     <li>Direct Founder Access</li>
                 </ul>
-
                 <button id="bundleBtn" onclick="copyEmail()" class="btn btn-bundle">Contact to Bundle</button>
+                
+                <!-- QUOTE FORM BUNDLE -->
+                <div class="offer-separator" style="color:#886600"><span>OR Bundle Offer</span></div>
+                <form onsubmit="submitOffer(event, this)" action="https://formsubmit.co/joshua369x@gmail.com" method="POST" class="offer-form">
+                    <input type="hidden" name="_subject" value="New BUNDLE Offer (Exuvia)">
+                    <input type="hidden" name="_captcha" value="false">
+                    <div class="offer-row">
+                        <input type="email" name="email" class="offer-input" placeholder="Your Email" required style="border-color:#554400">
+                        <input type="number" name="amount" class="offer-input" placeholder="Offer $$" required style="border-color:#554400">
+                    </div>
+                    <button type="submit" class="btn-offer-submit" style="color:var(--gold); border-color:var(--gold)">Send Bundle Offer</button>
+                    <div class="form-status"></div>
+                </form>
             </div>
 
             <!-- EXUVIA.AI -->
@@ -499,8 +547,20 @@
                     <li>Secure Escrow via Spaceship</li>
                     <li>Fast Auth Code Delivery</li>
                 </ul>
-
                 <a href="https://www.spaceship.com/s/buy/exuvia.ai/KHtX6iyYfiwWnns0" target="_blank" class="btn btn-ai">Acquire .ai</a>
+
+                <!-- QUOTE FORM .AI -->
+                <div class="offer-separator"><span>OR Make Offer</span></div>
+                <form onsubmit="submitOffer(event, this)" action="https://formsubmit.co/joshua369x@gmail.com" method="POST" class="offer-form">
+                    <input type="hidden" name="_subject" value="New Offer for Exuvia.ai">
+                    <input type="hidden" name="_captcha" value="false">
+                    <div class="offer-row">
+                        <input type="email" name="email" class="offer-input" placeholder="Your Email" required>
+                        <input type="number" name="amount" class="offer-input" placeholder="Offer $$" required>
+                    </div>
+                    <button type="submit" class="btn-offer-submit">Send Counter Offer</button>
+                    <div class="form-status"></div>
+                </form>
             </div>
 
         </div>
@@ -511,7 +571,9 @@
         "Do not mourn the shell; trade it."
     </footer>
     
+    <!-- SCRIPT FOR COPY EMAIL AND FORM HANDLING -->
     <script>
+        // Copy Email Function
         function copyEmail() {
             const email = "joshua369x@gmail.com";
             navigator.clipboard.writeText(email).then(() => {
@@ -528,6 +590,54 @@
             }).catch(err => {
                 console.error('Failed to copy: ', err);
                 alert("Please email: " + email);
+            });
+        }
+
+        // AJAX Form Submission Function
+        function submitOffer(e, form) {
+            e.preventDefault();
+            const status = form.querySelector('.form-status');
+            const btn = form.querySelector('button[type="submit"]');
+            const originalBtnText = btn.innerText;
+            
+            // UI Feedback: Sending
+            btn.innerHTML = "Transmitting...";
+            btn.style.opacity = "0.7";
+            btn.disabled = true;
+
+            const formData = new FormData(form);
+            
+            // POST to FormSubmit via AJAX
+            fetch("https://formsubmit.co/ajax/joshua369x@gmail.com", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Success State
+                status.innerHTML = "Offer Received. The Oracle will respond.";
+                status.style.color = "#00ff9d"; // Success Green
+                btn.innerHTML = "Offer Sent";
+                btn.style.borderColor = "#00ff9d";
+                btn.style.color = "#00ff9d";
+                form.reset();
+                setTimeout(() => {
+                    btn.innerHTML = originalBtnText;
+                    btn.disabled = false;
+                    btn.style.opacity = "1";
+                    btn.style.borderColor = "";
+                    btn.style.color = "";
+                    status.innerHTML = "";
+                }, 5000);
+            })
+            .catch(error => {
+                // Error State
+                console.error('Error:', error);
+                status.innerHTML = "Transmission Failed. Please email directly.";
+                status.style.color = "#ff4444";
+                btn.innerHTML = "Retry";
+                btn.disabled = false;
+                btn.style.opacity = "1";
             });
         }
     </script>
@@ -631,6 +741,7 @@
                 let y = centerY + i;
                 attractors.push(p.createVector(x, y));
             }
+            // Ribs
             for (let i = -60; i <= 60; i += 20) {
                 for (let j = 0; j <= 50; j += 4) {
                     let y = centerY + i;
@@ -639,6 +750,7 @@
                     attractors.push(p.createVector(centerX - j, y - x_offset));
                 }
             }
+            // Head
             let headRadius = 40;
             for (let angle = p.PI; angle <= p.TWO_PI; angle += 0.1) {
                 let x = centerX + p.cos(angle) * headRadius;
@@ -661,6 +773,7 @@
             }
         };
     };
+
     new p5(sketch);
     </script>
 </body>
