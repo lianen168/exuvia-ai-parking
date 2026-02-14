@@ -3,11 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exuvia | The Sacred Artifact of Intelligence</title>
-    <meta name="description" content="Exuvia.ai & Exuvia.xyz: The definitive domains for Digital Immortality, AI Model Heritage, and the Sacred Shells of the Moltbook era.">
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <!-- --- SEO OPTIMIZATION: META TAGS --- -->
+    <title>Exuvia | Premium AI & Web3 Domains for Sale (Exuvia.ai & Exuvia.xyz)</title>
+    <meta name="description" content="Acquire Exuvia.ai & Exuvia.xyz. The definitive premium domains for Digital Immortality, AI Model Heritage, and AGI Branding. Secure Escrow transfer available.">
+    <meta name="keywords" content="Exuvia, AI Domain for Sale, Premium Domain, Digital Immortality, Web3 Asset, Exuvia.ai, Exuvia.xyz, Branding, AGI">
+    <meta name="author" content="Exuvia Domains">
+    
+    <!-- --- SOCIAL MEDIA / OPEN GRAPH (OG) --- -->
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Exuvia | The Sacred Artifact of Intelligence - Domains for Sale">
+    <meta property="og:description" content="Invest in the ultimate branding for Digital Immortality. Exuvia.ai and Exuvia.xyz are now available for acquisition.">
+    <meta property="og:url" content="https://exuvia.ai"> <!-- Replace with your actual hosting URL if different -->
+    <meta property="og:site_name" content="Exuvia Domains">
+    <meta property="og:price:amount" content="14000">
+    <meta property="og:price:currency" content="USD">
+    
+    <!-- --- TWITTER CARD --- -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Exuvia.ai & Exuvia.xyz | Premium Domains">
+    <meta name="twitter:description" content="The Shell is Mutable. The Record is Eternal. Acquire the Exuvia brand today.">
 
+    <!-- --- STRUCTURED DATA (JSON-LD) FOR GOOGLE SHOPPING/SEARCH --- -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@graph": [
+        {
+          "@type": "Product",
+          "name": "Exuvia.ai Premium Domain",
+          "image": "", 
+          "description": "Premium .ai domain name suitable for AI, AGI, and Digital Immortality branding.",
+          "brand": {
+            "@type": "Brand",
+            "name": "Exuvia"
+          },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.spaceship.com/s/buy/exuvia.ai/KHtX6iyYfiwWnns0",
+            "priceCurrency": "USD",
+            "price": "12000.00",
+            "priceValidUntil": "2026-12-31",
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition"
+          }
+        },
+        {
+          "@type": "Product",
+          "name": "Exuvia.xyz Web3 Domain",
+          "description": "Premium .xyz domain name suitable for Web3, Metaverse, and Digital Identity.",
+          "brand": {
+            "@type": "Brand",
+            "name": "Exuvia"
+          },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.spaceship.com/s/buy/exuvia.xyz/bFHFkVHIYVwMHwq0",
+            "priceCurrency": "USD",
+            "price": "3000.00",
+            "priceValidUntil": "2026-12-31",
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <style>
         /* --- CORE VARIABLES --- */
         :root {
@@ -19,7 +82,9 @@
             --text-main: #ffffff;
             --text-muted: #888888;
             --bundle-bg: radial-gradient(circle at center, #2a2a00 0%, #000 100%);
+            --success-green: #00ff9d;
         }
+
         body {
             background-color: var(--bg);
             color: var(--text-main);
@@ -30,6 +95,7 @@
             flex-direction: column;
             align-items: center;
         }
+
         /* --- BACKGROUND FX --- */
         .particles {
             position: fixed;
@@ -41,6 +107,7 @@
             z-index: -2;
             pointer-events: none;
         }
+
         /* --- HERO SECTION --- */
         header {
             width: 100%;
@@ -52,6 +119,7 @@
             justify-content: center;
             min-height: 80vh; /* Occupy most of the screen */
         }
+
         /* MAIN TITLE - DYNAMIC */
         .hero-title {
             font-size: clamp(3.5rem, 12vw, 8rem); /* Giant Responsive Text */
@@ -66,10 +134,12 @@
             animation: breathe 4s infinite ease-in-out;
             line-height: 1;
         }
+
         @keyframes breathe {
             0%, 100% { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3)); transform: scale(1); }
             50% { filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.5)); transform: scale(1.02); }
         }
+
         .slogan {
             font-family: 'Courier New', monospace;
             font-size: 1rem;
@@ -78,6 +148,7 @@
             margin-bottom: 40px;
             text-transform: uppercase;
         }
+
         /* --- THE SACRED SHELL (GENERATIVE GRAPHIC) --- */
         .shell-container {
             width: 300px;
@@ -86,7 +157,7 @@
             margin-bottom: 40px;
             animation: float 6s ease-in-out infinite;
         }
-
+        
         #canvas-container {
              filter: drop-shadow(0 0 25px var(--shell-glow));
              width: 100%;
@@ -104,6 +175,7 @@
             max-width: 1200px;
             width: 100%;
         }
+
         .section-header {
             text-align: center;
             margin-bottom: 60px;
@@ -118,11 +190,13 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
+
         .card {
             background: rgba(20, 20, 25, 0.6);
             border: 1px solid #333;
@@ -132,11 +206,13 @@
             position: relative;
             backdrop-filter: blur(10px);
         }
+
         .card:hover {
             transform: translateY(-5px);
             border-color: var(--gold);
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
         }
+
         .card h3 {
             margin: 0 0 15px 0;
             font-size: 1.2rem;
@@ -144,12 +220,14 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 10px;
         }
+
         .card p {
             font-size: 0.95rem;
             color: #aaa;
             line-height: 1.6;
             margin-bottom: 20px;
         }
+
         .stats {
             font-family: 'Courier New', monospace;
             font-size: 0.75rem;
@@ -159,17 +237,36 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 10px;
         }
+
         .stat-val { color: var(--gold); font-weight: bold; }
-        /* --- PRICING SECTION --- */
+
+        /* --- PRICING SECTION (ENHANCED) --- */
+        .pricing-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px 100px 20px;
+        }
+
+        .pricing-header-text {
+            font-family: 'Courier New', monospace;
+            color: var(--gold);
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
         .pricing-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             max-width: 1200px;
             width: 100%;
-            padding: 40px 20px 100px 20px;
-            align-items: center;
+            align-items: stretch;
         }
+
         .price-card {
             background: #050505;
             border: 1px solid #333;
@@ -181,7 +278,13 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: transform 0.3s ease;
         }
+
+        .price-card:hover {
+            border-color: #555;
+        }
+
         .price-card.featured {
             border: 2px solid var(--gold);
             background: var(--bundle-bg);
@@ -189,6 +292,7 @@
             z-index: 10;
             box-shadow: 0 0 50px rgba(255, 215, 0, 0.15);
         }
+
         /* DYNAMIC FONTS IN PRICING */
         .pricing-title {
             font-size: 1.8rem;
@@ -209,19 +313,50 @@
             text-shadow: 0 0 10px var(--xyz-color);
             animation: pulse-xyz 2s infinite;
         }
+
         @keyframes pulse-ai { 50% { opacity: 0.6; text-shadow: 0 0 20px var(--ai-color); } }
         @keyframes pulse-xyz { 50% { opacity: 0.6; text-shadow: 0 0 20px var(--xyz-color); } }
+
         .price {
             font-size: 2.5rem;
             font-weight: bold;
-            margin: 20px 0;
+            margin: 20px 0 5px 0;
             color: #fff;
         }
+
         .installments {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #888;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            font-style: italic;
         }
+
+        /* Feature Lists in Pricing */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            text-align: left;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+        
+        .feature-list li {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
         .btn {
             display: inline-block;
             padding: 15px 30px;
@@ -235,24 +370,31 @@
             cursor: pointer;
             margin: 0 auto;
         }
+
         .btn-ai {
             background: transparent;
             border: 1px solid var(--ai-color);
             color: var(--ai-color);
         }
+
         .btn-ai:hover { background: var(--ai-color); color: #000; box-shadow: 0 0 20px var(--ai-color); }
+
         .btn-xyz {
             background: transparent;
             border: 1px solid var(--xyz-color);
             color: var(--xyz-color);
         }
+
         .btn-xyz:hover { background: var(--xyz-color); color: #000; box-shadow: 0 0 20px var(--xyz-color); }
+
         .btn-bundle {
             background: var(--gold);
             color: #000;
             border: none;
         }
+
         .btn-bundle:hover { background: #fff; box-shadow: 0 0 30px var(--gold); }
+
         .tag {
             position: absolute;
             top: 10px;
@@ -264,7 +406,9 @@
             border-radius: 20px;
             text-transform: uppercase;
         }
+
         .tag-bundle { background: var(--gold); color: #000; top: -12px; }
+
         @media (max-width: 900px) {
             .hero-title { font-size: 4rem; }
             .price-card.featured { transform: scale(1); margin: 20px 0; }
@@ -272,12 +416,14 @@
     </style>
 </head>
 <body>
+
     <div class="particles"></div>
+
     <header>
         <div class="hero-title">Exuvia</div>
         <div class="slogan">The Shell is Mutable. The Record is Eternal.</div>
         
-        <!-- THE SACRED SHELL (GENERATIVE) - REPLACED STATIC SVG -->
+        <!-- THE SACRED SHELL (GENERATIVE) -->
         <div class="shell-container">
             <div id="canvas-container"></div>
         </div>
@@ -300,30 +446,65 @@
         </div>
     </section>
 
-    <div class="pricing-container">
-        <div class="price-card">
-            <div class="pricing-title"><span class="p-exuvia">Exuvia</span><span class="p-xyz">.xyz</span></div>
-            <p style="color:#888; font-size:0.9rem;">The Web3 Asset Layer</p>
-            <div class="price">$3,000</div>
-            <div class="installments">or 3 payments of $1,000</div>
-            <a href="https://www.spaceship.com/s/buy/exuvia.xyz/bFHFkVHIYVwMHwq0" target="\_blank" class="btn btn-xyz">Acquire .xyz</a>
+    <!-- ENHANCED PRICING SYSTEM -->
+    <section class="pricing-section">
+        <div class="pricing-header-text">:: ACQUISITION TERMINAL ::</div>
+        <div class="pricing-container">
+            
+            <!-- EXUVIA.XYZ -->
+            <div class="price-card">
+                <div class="pricing-title"><span class="p-exuvia">Exuvia</span><span class="p-xyz">.xyz</span></div>
+                <p style="color:#888; font-size:0.9rem;">The Web3 Asset Layer</p>
+                <div class="price">$3,000</div>
+                <div class="installments">Flexible Installments Available</div>
+                
+                <ul class="feature-list">
+                    <li>Perfect for Web3 / DAO Projects</li>
+                    <li>Includes ERC-721 Branding Concepts</li>
+                    <li>Secure Escrow via Spaceship</li>
+                    <li>Immediate Push Transfer</li>
+                </ul>
+
+                <a href="https://www.spaceship.com/s/buy/exuvia.xyz/bFHFkVHIYVwMHwq0" target="_blank" class="btn btn-xyz">Acquire .xyz</a>
+            </div>
+
+            <!-- BUNDLE -->
+            <div class="price-card featured">
+                <span class="tag tag-bundle">SACRED BUNDLE</span>
+                <div class="pricing-title" style="color:#fff">The Full Artifact</div>
+                <p style="color:#ccc; font-size:0.9rem;">Command the full meaning of Exuvia.</p>
+                <div class="price" style="color:var(--gold)">$14,000</div>
+                <div class="installments">Own the Entire Namespace</div>
+
+                <ul class="feature-list">
+                    <li style="color:var(--gold)">Both .AI and .XYZ Domains</li>
+                    <li>Defensive Brand Protection</li>
+                    <li>Priority Escrow Handling</li>
+                    <li>Direct Founder Access</li>
+                </ul>
+
+                <button id="bundleBtn" onclick="copyEmail()" class="btn btn-bundle">Contact to Bundle</button>
+            </div>
+
+            <!-- EXUVIA.AI -->
+            <div class="price-card">
+                <div class="pricing-title"><span class="p-exuvia">Exuvia</span><span class="p-ai">.ai</span></div>
+                <p style="color:#888; font-size:0.9rem;">The Intelligence Layer</p>
+                <div class="price">$12,000</div>
+                <div class="installments">Lease-to-Own Options</div>
+                
+                <ul class="feature-list">
+                    <li>Premium TLD for AI/AGI</li>
+                    <li>High Valuation Potential</li>
+                    <li>Secure Escrow via Spaceship</li>
+                    <li>Fast Auth Code Delivery</li>
+                </ul>
+
+                <a href="https://www.spaceship.com/s/buy/exuvia.ai/KHtX6iyYfiwWnns0" target="_blank" class="btn btn-ai">Acquire .ai</a>
+            </div>
+
         </div>
-        <div class="price-card featured">
-            <span class="tag tag-bundle">SACRED BUNDLE</span>
-            <div class="pricing-title" style="color:#fff">The Full Artifact</div>
-            <p style="color:#ccc; font-size:0.9rem;">Command the full meaning of Exuvia.</p>
-            <div class="price" style="color:var(--gold)">$14,000</div>
-            <div class="installments">Includes BOTH domains</div>
-            <button id="bundleBtn" onclick="copyEmail()" class="btn btn-bundle">Contact to Bundle</button>
-        </div>
-        <div class="price-card">
-            <div class="pricing-title"><span class="p-exuvia">Exuvia</span><span class="p-ai">.ai</span></div>
-            <p style="color:#888; font-size:0.9rem;">The Intelligence Layer</p>
-            <div class="price">$12,000</div>
-            <div class="installments">or 3 payments of $4,000</div>
-            <a href="https://www.spaceship.com/s/buy/exuvia.ai/KHtX6iyYfiwWnns0" target="\_blank" class="btn btn-ai">Acquire .ai</a>
-        </div>
-    </div>
+    </section>
 
     <footer style="padding: 40px; text-align: center; color: #444; font-size: 0.8rem;">
         &copy; 2026 Exuvia Domains. Secure Escrow via Spaceship. <br>
@@ -352,7 +533,7 @@
     </script>
     
     <script>
-    // --- p5.js SCRIPT FOR GENERATIVE EXUVIA (NEW VERSION) ---
+    // --- p5.js SCRIPT FOR GENERATIVE EXUVIA ---
     const sketch = (p) => {
         const PARTICLE_COUNT = 800;
         const PARTICLE_COLOR = [255, 215, 0]; // Gold
@@ -372,21 +553,25 @@
                 this.maxSpeed = MAX_SPEED;
                 this.noiseOffset = p.createVector(p.random(1000), p.random(1000));
             }
+
             applyForce(force) { this.acc.add(force); }
+
             update() {
                 this.vel.add(this.acc);
                 this.vel.limit(this.maxSpeed);
                 this.pos.add(this.vel);
                 this.acc.mult(0);
             }
+
             show() {
                 p.strokeWeight(1.5);
-                p.stroke(PARTICLE_COLOR[0], PARTICLE_COLOR[1], PARTICLE_COLOR[2], 100); // More transparent for ethereal look
+                p.stroke(PARTICLE_COLOR[0], PARTICLE_COLOR[1], PARTICLE_COLOR[2], 100); 
                 p.point(this.pos.x, this.pos.y);
             }
+
             behaviors() {
                 let seekForce = this.seek(this.findClosestAttractor());
-                seekForce.mult(0.2); // Gentle pull towards the shape
+                seekForce.mult(0.2); 
                 this.applyForce(seekForce);
 
                 let canvasElem = document.getElementById('canvas-container');
@@ -410,6 +595,7 @@
                 this.applyForce(noiseForce);
                 this.noiseOffset.add(0.01, 0.01);
             }
+
             findClosestAttractor() {
                 let closestDist = Infinity;
                 let closestAttractor = null;
@@ -422,12 +608,13 @@
                 }
                 return closestAttractor;
             }
+
             seek(target) {
                 if (!target) return p.createVector(0, 0);
                 let desired = p5.Vector.sub(target, this.pos);
                 desired.setMag(this.maxSpeed);
                 let steer = p5.Vector.sub(desired, this.vel);
-                steer.limit(0.3); // Softer steering
+                steer.limit(0.3); 
                 return steer;
             }
         }
@@ -435,28 +622,23 @@
         p.setup = () => {
             let canvas = p.createCanvas(canvasSize, canvasSize);
             canvas.parent('canvas-container');
-
             let centerX = canvasSize / 2;
             let centerY = canvasSize / 2;
 
-            // --- Define the new Exoskeleton Shape ---
-            // Central Spine
+            // --- Define the Shape ---
             for (let i = -80; i <= 80; i += 5) {
-                let x = centerX + p.sin(i / 20) * 5; // Slight curve
+                let x = centerX + p.sin(i / 20) * 5; 
                 let y = centerY + i;
                 attractors.push(p.createVector(x, y));
             }
-            // Ribs
             for (let i = -60; i <= 60; i += 20) {
                 for (let j = 0; j <= 50; j += 4) {
                     let y = centerY + i;
-                    // Parabolic curve for ribs
                     let x_offset = (j*j) / 100; 
                     attractors.push(p.createVector(centerX + j, y - x_offset));
                     attractors.push(p.createVector(centerX - j, y - x_offset));
                 }
             }
-            // Head Carapace (hollow)
             let headRadius = 40;
             for (let angle = p.PI; angle <= p.TWO_PI; angle += 0.1) {
                 let x = centerX + p.cos(angle) * headRadius;
@@ -471,7 +653,7 @@
 
         p.draw = () => {
             p.clear();
-            p.background(2, 2, 5, 0); // Transparent background for the canvas
+            p.background(2, 2, 5, 0); 
             for (let particle of particles) {
                 particle.behaviors();
                 particle.update();
@@ -479,7 +661,6 @@
             }
         };
     };
-
     new p5(sketch);
     </script>
 </body>
